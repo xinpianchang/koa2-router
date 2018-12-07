@@ -6,7 +6,7 @@ You can follow the instructions below to setup a router componnent in koa@2 envi
 
 ### Prerequisties
 * node version > 8.10
-* denpends on *koa*@2.0
+* depends on *koa*@2.0
 
 ### Installing
 * If you use npm to manage your dependencies, run
