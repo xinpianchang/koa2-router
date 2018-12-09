@@ -4,9 +4,11 @@
 var Koa = require('koa');
 var delay = require('delay');
 var createError = require('http-errors');
+var morgan = require('koa-morgan');
 var Router = require('../../lib');
 
 var app = new Koa();
+app.use(morgan('dev'));
 
 // Example requests:
 //     curl http://localhost:3000/user/0
@@ -62,7 +64,7 @@ function andRestrictTo(role) {
 // you would of course implement something real,
 // but this illustrates how an authenticated user
 // may interact with middleware
-var router = Router();
+var router = module.exports = Router();
 
 router.use(function(ctx, next) {
   ctx.authenticatedUser = users[2];

@@ -8,7 +8,7 @@ var morgan = require('koa-morgan');
 var Router = require('../../lib');
 
 var app = new Koa();
-var router = Router();
+var router = module.exports = Router();
 
 app.use(morgan('dev'));
 app.use(router);
