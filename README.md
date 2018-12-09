@@ -50,7 +50,8 @@ npm run test
 ```
 
 ## License
-This project is licensed under the Apacha 2.0 License
+This project is licensed under the MIT License
 
 ## Acknowledgements
+* Thanks to the [expressjs/express](https://github.com/expressjs/express) project
 * Thanks to the [koa-router](https://github.com/alexmingoia/koa-router) project

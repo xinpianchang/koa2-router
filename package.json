@@ -1,0 +1,39 @@
+{
+  "name": "koa2-router",
+  "version": "1.0.0",
+  "description": "A express-liked router component for koa2",
+  "main": "index.js",
+  "repository": "xinpianchang/koa2-router",
+  "author": "Tang Ye <develop@xinpianchang.com>",
+  "license": "MIT",
+  "keywords": [
+    "koa",
+    "framework",
+    "router",
+    "koa2-router"
+  ],
+  "engines": {
+    "node": "^7.10.1 || >= 8.1.4"
+  },
+  "dependencies": {
+    "array-flatten": "^2.1.2",
+    "debug": "^4.1.0",
+    "depd": "^2.0.0",
+    "methods": "^1.1.2",
+    "parseurl": "^1.3.2",
+    "path-to-regexp": "^2.4.0",
+    "setprototypeof": "^1.1.0",
+    "utils-merge": "^1.0.1"
+  },
+  "devDependencies": {
+    "delay": "^4.1.0",
+    "http-errors": "^1.7.1",
+    "koa": "^2.6.2",
+    "koa-morgan": "^1.0.1"
+  },
+  "files": [
+    "LICENSE",
+    "index.js",
+    "lib/"
+  ]
+}
