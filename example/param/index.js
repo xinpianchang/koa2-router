@@ -36,7 +36,7 @@ router.param(['to', 'from'], function(ctx, next, num, name) {
 
 // Load user by id
 
-router.param('user', function(ctx, next, id){
+router.param('user', function(ctx, next, id) {
   if (ctx.user = users[id]) {
     return next();
   }
