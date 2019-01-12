@@ -38,9 +38,41 @@ router2.use(...);
 router.use('/users', router2);
 ```
 
-* use http method handle request
+* Use http method to handle request
 ```
 router2.get('/:userId', ctx => ctx.body = `hello user ${ctx.params.userId}`);
+```
+
+* Use params middleware like express
+```
+const router3 = Router();
+router3.params('userName', (ctx, next, userName, key) => (ctx[key] = userName, next()))
+  .get('/:userName', async ctx => ctx.body = await ctx.db.getStaffFromName(ctx.userName));
+router.use('/staff', router3);
+```
+
+* Use route to make a rest api
+```
+const route = router3.route('/:id');
+route
+  .get(async ctx => ctx.body = await ctx.db.getStaffFromId(ctx.params.id));
+```
+
+* exit route or router without exception
+```
+route
+  .all(async (ctx, next) => {
+     if (ctx.authenticate.userId === ctx.params.id) return next();
+     else throw 'route'; // exit this route without any exception
+  })   
+  .put(async ctx => ctx.body = await ctx.db.updateStaff(ctx.params.id, ctx.request.body))
+  .del(async ctx => ctx.body = await ctx.db.deleteStaff(ctx.params.id));
+  
+route3.use('/admin', (ctx, next) => {
+  if (ctx.authenticate.userRoles.includes('admin')) return next();
+  else throw 'router'; // exit this router3 without any exception
+})
+  .post('/posts', async ctx => ctx.body = await ctx.db.createPost(ctx.request.body, ctx.authenticate.userId));
 ```
 
 ## Running tests
