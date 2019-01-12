@@ -1,5 +1,6 @@
 # koa2-router
 An express-liked router component for koa2
+  [![NPM Version][npm-image]][npm-url]
 
 ## Getting Started
 You can follow the instructions below to setup a router component in koa@2 environment. 
@@ -81,9 +82,12 @@ You should clone thie repository down to your file system, and execute
 npm run test
 ```
 
-## License
-This project is licensed under the MIT License
-
 ## Acknowledgements
 * Thanks to the [expressjs/express](https://github.com/expressjs/express) project
 * Thanks to the [koa-router](https://github.com/alexmingoia/koa-router) project
+
+## License
+  [MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/koa.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/koa2-router
