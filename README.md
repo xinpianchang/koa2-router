@@ -1,5 +1,5 @@
 # koa2-router
-A express-liked router component for koa2
+An express-liked router component for koa2
 
 ## Getting Started
 You can follow the instructions below to setup a router component in koa@2 environment. 
