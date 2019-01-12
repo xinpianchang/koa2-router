@@ -1,5 +1,6 @@
 # koa2-router
 An express-liked router component for koa2
+
   [![NPM Version][npm-image]][npm-url]
 
 ## Getting Started
@@ -89,5 +90,5 @@ npm run test
 ## License
   [MIT](LICENSE)
 
-[npm-image]: https://img.shields.io/npm/v/koa.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/koa2-router.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koa2-router
