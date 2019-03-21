@@ -86,6 +86,7 @@ npm run test
 ## Acknowledgements
 * Thanks to the [expressjs/express](https://github.com/expressjs/express) project
 * Thanks to the [koa-router](https://github.com/alexmingoia/koa-router) project
+* Thanks to the [router](https://github.com/pillarjs/router) project
 
 ## License
   [MIT](LICENSE)
