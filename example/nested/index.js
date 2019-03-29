@@ -1,5 +1,4 @@
 var Koa = require('koa')
-var createError = require('http-errors')
 var morgan = require('koa-morgan')
 var Router = require('../../lib')
 
@@ -12,12 +11,11 @@ router.use(async (ctx, next) => {
   await next()
   console.log('leave parent')
 })
-// router.use('/stuff', nested)
-router.all('/stuff', nested) // different usage between `.all and .use`
+router.use('/stuff', nested)
 router.use(async (ctx, next) => {
-  console.log('prepare')
+  console.log('enter child')
   await next()
-  console.log('post')
+  console.log('leave child')
 })
 router.use(ctx => {
   console.log('output body')
