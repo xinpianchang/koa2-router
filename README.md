@@ -4,6 +4,13 @@ An express-liked router component for koa2
   [![NPM Version][npm-image]][npm-url]
 
 ## Features
+* Express-style routing using .use|.params|.all|.route|[method]
+* Arrayed path prefix
+* Multiple, nestable router stacks
+* 405 Method Not Allowed support
+* 501 Not Implemented support
+* Named router for debug
+* Bounded baseUrl|url|params|matched|responded upon app.context|request|response
 
 ## Getting Started
 You can follow the instructions below to setup a router component in koa@2 environment. 
@@ -164,6 +171,26 @@ You should clone thie repository down to your file system, and execute
 ```
 npm run test
 ```
+
+## API Documents
+### Context
+* ctx.baseUrl
+* ctx.url
+* ctx.params
+* ctx.matched
+* ctx.responded
+
+### Router
+* class Router(name: String | opts: Object):(ctx, next) => void
+* router.use([path: String | String[]], ...middlewares: (ctx, next) => void):Router
+* router.route(path: String | String[]):Route
+* router.all([path: String | String[]], ...middlewares: (ctx, next) => void):Router
+* router[method]([path: String | String[]], ...middlewares: (ctx, next) => void):Router
+* router.params(name: String, callback: (ctx, next, value, name) => void):Router
+
+### Route
+* route.all([path: String | String[]], ...middlewares: (ctx, next) => void):Router
+* route[method]([path: String | String[]], ...middlewares: (ctx, next) => void):Router
 
 ## Acknowledgements
 * Thanks to the [expressjs/express][1] project
