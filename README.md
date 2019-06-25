@@ -174,23 +174,23 @@ npm run test
 
 ## API Documents
 ### Context
-* ctx.baseUrl
-* ctx.url
-* ctx.params
-* ctx.matched
-* ctx.responded
+* ctx.baseUrl: string
+* ctx.url: string
+* ctx.params: any
+* ctx.matched: string[]
+* ctx.responded: boolean
 
 ### Router
-* class Router(name: String | opts: Object):(ctx, next) => void
-* router.use([path: String | String[]], ...middlewares: (ctx, next) => void):Router
-* router.route(path: String | String[]):Route
-* router.all([path: String | String[]], ...middlewares: (ctx, next) => void):Router
-* router[method]([path: String | String[]], ...middlewares: (ctx, next) => void):Router
-* router.params(name: String, callback: (ctx, next, value, name) => void):Router
+* class Router(name: string | opts: any):Middleware
+* router.use([path: string | string[]], ...middlewares: Middleware):Router
+* router.route(path: string | string[]):Route
+* router.all([path: string | string[]], ...middlewares: Middleware):Router
+* router[method]([path: string | string[]], ...middlewares: Middleware):Router
+* router.params(name: string, callback: (ctx, next, value: string, name: string) => void):Router
 
 ### Route
-* route.all([path: String | String[]], ...middlewares: (ctx, next) => void):Router
-* route[method]([path: String | String[]], ...middlewares: (ctx, next) => void):Router
+* route.all([path: string | string[]], ...middlewares: Middleware):Router
+* route[method]([path: string | string[]], ...middlewares: Middleware):Router
 
 ## Acknowledgements
 * Thanks to the [expressjs/express][1] project
