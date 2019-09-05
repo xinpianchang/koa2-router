@@ -14,9 +14,9 @@ app.use(new Router());
 import { Middleware, ParameterizedContext } from "koa"
 
 declare module "koa" {
-  interface Context extends RouterContextInit {}
-  interface Request extends RouterRequestInit {}
-  interface Response extends RouterResponseInit {}
+  interface BaseContext extends RouterContextInit {}
+  interface BaseRequest extends RouterRequestInit {}
+  interface BaseResponse extends RouterResponseInit {}
 }
 
 export interface RouterRequestInit {
