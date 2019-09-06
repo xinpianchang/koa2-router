@@ -12,6 +12,7 @@ app.use(new Router());
 =============================================== */
 
 import { Middleware, ParameterizedContext } from "koa"
+import { Path } from "path-to-regexp"
 
 declare module "koa" {
   interface BaseContext extends RouterContextInit {}
@@ -38,7 +39,7 @@ declare namespace KoaRouter {
   }
 
   export interface Route<StateT = any, CustomT = {}> {
-    readonly path: string;
+    readonly path: Path;
     all: (...middlewares: Middleware<StateT, CustomT>[]) => Route<StateT, CustomT>;
     head: (...middlewares: Middleware<StateT, CustomT>[]) => Route<StateT, CustomT>;
     get: (...middlewares: Middleware<StateT, CustomT>[]) => Route<StateT, CustomT>;
@@ -74,18 +75,18 @@ declare namespace KoaRouter {
 
   export interface Router<StateT = any, CustomT = {}> extends Middleware<StateT, CustomT> {
     _name: string;
-    route(path: string): Route<StateT, CustomT>;
+    route(path: Path): Route<StateT, CustomT>;
     param: <K extends string | number, V = any>(name: K, fn: ParamCallback<K, V, StateT, CustomT>) => Router<StateT, CustomT>;
-    use: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    all: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    head: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    get: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    post: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    delete: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    del: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    put: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    patch: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
-    options: (pathOrMiddleware: string | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    use: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    all: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    head: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    get: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    post: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    delete: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    del: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    put: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    patch: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
+    options: (pathOrMiddleware: Path | Middleware<StateT, CustomT>, ...middlewares: Middleware<StateT, CustomT>[]) => Router<StateT, CustomT>;
     allowMethods: (options?: AllowOptions<StateT, CustomT>) => Middleware<StateT, CustomT>;
   }
 
