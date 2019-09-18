@@ -108,7 +108,7 @@ But there is an issue about that mode, how nested router stacks proceed for an a
 
 Nested routers are supported, but not behaves like in a single stack: enter -> enter -> enter <-> leave <- leave <- leave. Considering the entering and leaving order of the stack is relevant to the way they are mounted, we consulted and borrowed the algo from a Golang open source project [gobwas/glob][4]: within that a new `Group` midleware is introduced, and it can make a branching stack. So we borrowed this design and setup new rules in nested routers in order to constraint excuting stack orders:
 
-1. Middleares using `.use()` in which path can just be `/` or `*`, insert `middlewares` to the original stack
+1. Middlewares using `.use()` in which path can just be `/` or `*`, insert `middlewares` to the original stack
 > in `Router.use(middlewares)`,  `middlewares` are inserted into
 > the parent's middlewares, thus when the last one invokes `next()`, it
 > will continue `enter` the next one of the parent router, until all
