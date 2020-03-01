@@ -10,3 +10,5 @@ router.use('/abc', router.allowMethods())
 router.get('/:id', ctx => ctx.body = ctx.id)
 
 app.use(router)
+
+app.listen(() => console.log('listening...'))

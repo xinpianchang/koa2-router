@@ -31,7 +31,10 @@
   "devDependencies": {
     "@types/koa": "^2.11.2",
     "delay": "^4.3.0",
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "koa-morgan": "^1.0.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
   },
   "files": [
     "LICENSE",
